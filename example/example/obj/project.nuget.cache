@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dGdPUJVNqrciP18MenPV627lqghVZV5R1Dc3YV9a/moD+V3Ubfzhf28J8Ej9OhJK+uZa3QFCkhi5v6top+386g==",
+  "dgSpecHash": "w4tYkz5CGUoR6wgGhtv+pVQLiSlfeJ82CRqYP6JxFPgrmCRxkDfwhivJKfCZIKH0EEGwLMiLcTsvSFuoyDMAgg==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucas\\Documents\\amazon\\example\\example\\example\\example.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.30\\microsoft.entityframeworkcore.design.3.1.30.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.30\\microsoft.entityframeworkcore.relational.3.1.30.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.30\\microsoft.entityframeworkcore.sqlserver.3.1.30.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.30\\microsoft.entityframeworkcore.tools.3.1.30.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.30\\microsoft.extensions.caching.abstractions.3.1.30.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.30\\microsoft.extensions.caching.memory.3.1.30.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.30\\microsoft.extensions.configuration.3.1.30.nupkg.sha512",
