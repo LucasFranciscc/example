@@ -1,0 +1,69 @@
+﻿@model example.Models.ViewModel.Produtos.ProdutosViewModel
+@{
+    ViewData["Title"] = "Cadastrar Produto";
+    var produto = Model.ListaProduto;
+}
+
+<div class="container">
+
+    <form id="ajax_form">
+
+        <input type="hidden" name="id" id="id" value="@produto.id" />
+
+        <div class="form-group">
+            <label for="nomeProduto">Nome do produto</label>
+            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Nome do produto" value="@produto.nome_produto">
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição">@produto.descricao</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoria" value="@produto.categoria">
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor" value="@produto.valor">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Editar</button>
+
+    </form>
+
+</div>
+
+@section scripts {
+
+    <script>
+
+        $("#ajax_form").submit(function (event) {
+            event.preventDefault();
+
+            var formData = new FormData(document.getElementById("ajax_form"));
+
+            $.ajax({
+                type: "PUT",
+                url: "Cadastrar",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+
+                    console.log(data);
+
+                    //load.fadeOut(200);
+                },
+                error: function () {
+                    
+                }
+            });
+
+        });
+
+    </script>
+
+}
