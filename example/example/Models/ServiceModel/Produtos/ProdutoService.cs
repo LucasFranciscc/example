@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace example.Models.ServiceModel.Produtos
 {
-    public class CadastrarProduto
+    public class ProdutoService
     {
         private ExampleDbContext _dbContext;
 
-        public CadastrarProduto(ExampleDbContext dbContext)
+        public ProdutoService(ExampleDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -20,6 +20,14 @@ namespace example.Models.ServiceModel.Produtos
         {
             ProdutoDuplicado = await _dbContext.produto
                 .WhereNome(Produto.nome_produto)
+                .AnyAsync();
+        }
+
+        private async Task VerificaProdutoDuplicadoEditar()
+        {
+            ProdutoDuplicado = await _dbContext.produto
+                .WhereNome(Produto.nome_produto)
+                .WhereNotId(Produto.id)
                 .AnyAsync();
         }
 
@@ -35,5 +43,19 @@ namespace example.Models.ServiceModel.Produtos
 
             return true;
         }
+
+        public async Task<bool> Editar(Produto produto)
+        {
+            Produto = produto;
+
+            await VerificaProdutoDuplicadoEditar();
+            if (ProdutoDuplicado) return false;
+
+            _dbContext.produto.Update(Produto);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+
     }
 }

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace example.Results.Produtos
 {
-    public class CadastrarProdutoErroJson
+    public class EditarProdutoErroJson
     {
         private ProdutoService _produtoService;
 
-        public CadastrarProdutoErroJson(ProdutoService produtoService)
+        public EditarProdutoErroJson(ProdutoService produtoService)
         {
             _produtoService = produtoService;
         }
@@ -17,9 +17,9 @@ namespace example.Results.Produtos
         public async Task<StatusMessage> ExecuteResultAsync(bool reload, string redirect = "")
         {
             if (_produtoService.ProdutoDuplicado)
-                return new StatusMessage { status = "Warning", mensagem = "Produto duplicado" };
+                return new StatusMessage { status = "Erro", mensagem = "Produto duplicado" };
 
-            return new StatusMessage { status = "Sucesso", mensagem = "Cadastrado com sucesso", reload = reload, redirect = redirect };
+            return new StatusMessage { status = "Sucesso", mensagem = "Alterado com sucesso", reload = reload, redirect = redirect };
         }
 
     }

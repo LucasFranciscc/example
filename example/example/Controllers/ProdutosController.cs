@@ -44,25 +44,28 @@ namespace example.Controllers
             return View(model);
         }
 
-        [HttpPost]
         public async Task<IActionResult> Cadastrar(CadastrarProdutoModel model)
         {
-            var cadastrarProduto = new CadastrarProduto(_dbContext);
+            var produtoService = new ProdutoService(_dbContext);
 
-            await cadastrarProduto.Cadastrar(model.Map());
+            await produtoService.Cadastrar(model.Map());
 
-            var resultado = new CadastrarProdutoErroJson(cadastrarProduto).ExecuteResultAsync();
+            var resultado = new CadastrarProdutoErroJson(produtoService).ExecuteResultAsync(false, "/Produtos");
 
             return Json(resultado.Result, new System.Text.Json.JsonSerializerOptions());
 
         }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Editar(EditarProdutoModel model)
-        //{
-        //    var editarProduto = n0,
-        //        ew
-        //}
+        public async Task<IActionResult> Editar(EditarProdutoModel model)
+        {
+            var produtoService = new ProdutoService(_dbContext);
+
+            await produtoService.Editar(model.Map());
+
+            var resultado = new EditarProdutoErroJson(produtoService).ExecuteResultAsync(false, "/Produtos");
+
+            return Json(resultado.Result, new System.Text.Json.JsonSerializerOptions());
+        }
 
     }
 }

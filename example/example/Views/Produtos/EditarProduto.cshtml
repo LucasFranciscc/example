@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <form id="ajax_form">
+    <form id="ajax_form" action="Editar">
 
         <input type="hidden" name="id" id="id" value="@produto.id" />
 
@@ -36,34 +36,6 @@
 
 </div>
 
-@section scripts {
+@*@section scripts {
 
-    <script>
-
-        $("#ajax_form").submit(function (event) {
-            event.preventDefault();
-
-            var formData = new FormData(document.getElementById("ajax_form"));
-
-            $.ajax({
-                type: "PUT",
-                url: "Cadastrar",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-
-                    console.log(data);
-
-                    //load.fadeOut(200);
-                },
-                error: function () {
-                    
-                }
-            });
-
-        });
-
-    </script>
-
-}
+}*@

@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <form id="ajax_form">
+    <form id="ajax_form" action="Cadastrar">
 
         <div class="form-group">
             <label for="nomeProduto">Nome do produto</label>
@@ -31,35 +31,3 @@
     </form>
 
 </div>
-
-@section scripts {
-
-    <script>
-
-        $("#ajax_form").submit(function (event) {
-            event.preventDefault();
-
-            var formData = new FormData(document.getElementById("ajax_form"));
-
-            $.ajax({
-                type: "POST",
-                url: "Cadastrar",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-
-                    console.log(data);
-
-                    //load.fadeOut(200);
-                },
-                error: function () {
-                    
-                }
-            });
-
-        });
-
-    </script>
-
-}
